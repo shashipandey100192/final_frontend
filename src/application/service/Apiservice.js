@@ -1,7 +1,7 @@
 // live url
-export const baseurl = "https://final-backend-3unz.onrender.com";
+// export const baseurl = "https://final-backend-3unz.onrender.com";
 
 
 // local url
-// export const baseurl = "http://localhost:9700";
+export const baseurl = "http://localhost:9700";
 
