@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import axios from 'axios';
-import { apiurl } from '../../../services/Apiservice';
+import { baseurl } from '../../../service/Apiservice'
  import { ToastContainer, toast } from 'react-toastify';
 
 
@@ -27,7 +27,7 @@ const mynav = useNavigate();
     }
 
     const singleuserdata = ()=>{
-        axios.get(`${apiurl}/singleuser/${id}`).then((d)=>{
+        axios.get(`${baseurl}/singleuser/${id}`).then((d)=>{
             setFormData(d.data.user[0]);
             console.log(d.data.user[0]);
         })
@@ -41,7 +41,7 @@ const mynav = useNavigate();
 
 
     const updateuseer = (e) => {
-       axios.patch(`${apiurl}/edituser/${id}`,formData).then((d)=>{
+       axios.patch(`${baseurl}/edituser/${id}`,formData).then((d)=>{
         console.log(d);
         toast.success(d.data.msg,{autoClose:2000});
         setTimeout(()=>{

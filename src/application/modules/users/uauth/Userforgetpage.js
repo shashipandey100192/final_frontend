@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link,useNavigate } from "react-router-dom";
+import { baseurl } from "../../../service/Apiservice";
+
 
 function Userforgetpage() {
   const mynav = useNavigate();
@@ -31,7 +33,7 @@ function Userforgetpage() {
       alert("dob is required");
     }
     else {
-        axios.post("http://localhost:9700/forgetuserinfo",formData).then((d)=>{
+        axios.post(`${baseurl}/forgetuserinfo`,formData).then((d)=>{
           console.log(d);
           if(d.data.status===370)
           {

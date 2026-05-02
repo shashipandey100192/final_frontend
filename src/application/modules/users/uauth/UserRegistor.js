@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast,ToastContainer } from "react-toastify";
+import { baseurl } from "../../../service/Apiservice";
 
 function UserRegistor() {
     const mynav = useNavigate();
@@ -24,7 +25,7 @@ function UserRegistor() {
     }
 
     const handleSubmit = (e) => {
-        axios.post("http://localhost:9700/studentform",formData).then((d)=>{
+        axios.post(`${baseurl}/studentform`,formData).then((d)=>{
     
             if(d.data.status===202)
             {

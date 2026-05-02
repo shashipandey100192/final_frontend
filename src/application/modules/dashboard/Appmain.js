@@ -1,17 +1,21 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { baseurl } from '../../service/Apiservice';
 
 
 function Appmain() {
+    const mynav = useNavigate();
 
     const [users,updateuseer]=useState([]);
 
     const alluser = async ()=>{
-        axios.get("http://localhost:9700/alldata",{
+        axios.get(`${baseurl}/alldata`,{
             withCredentials:true
         }).then((d)=>{
             console.log(d.data);
             updateuseer(d.data.userlist)
+           
         })
     }
 

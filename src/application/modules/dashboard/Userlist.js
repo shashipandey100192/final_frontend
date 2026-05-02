@@ -1,13 +1,14 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { baseurl } from '../../service/Apiservice';
 
 function Userlist() {
     
     const [users,updateuseer]=useState([]);
 
     const alluser = async ()=>{
-        axios.get("http://localhost:9700/alldata",{
+        axios.get(`${baseurl}/alldata`,{
             withCredentials:true
         }).then((d)=>{
             console.log(d.data);
@@ -22,7 +23,7 @@ function Userlist() {
 const deleteuser = (myid)=>
 {
     console.log(myid);
-    axios.delete(`http://localhost:9700/userdelete/${myid}`).then((res)=>{
+    axios.delete(`${baseurl}/userdelete/${myid}`).then((res)=>{
         console.log(res);
         alluser();
     })
