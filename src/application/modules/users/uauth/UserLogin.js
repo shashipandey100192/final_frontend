@@ -19,8 +19,8 @@ const UserLogin = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    axios.post(`${baseurl}/userlogin`, formData,{
+  const handleSubmit = async (e) => {
+    await axios.post(`${baseurl}/userlogin`, formData,{
       withCredentials:true
     }).then((d) => {
       console.log(d);
