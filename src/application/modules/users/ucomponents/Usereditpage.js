@@ -26,8 +26,8 @@ const mynav = useNavigate();
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
-    const singleuserdata = ()=>{
-        axios.get(`${baseurl}/singleuser/${id}`).then((d)=>{
+    const singleuserdata =async ()=>{
+        await axios.get(`${baseurl}/singleuser/${id}`,{withCredentials:true}).then((d)=>{
             setFormData(d.data.user[0]);
             console.log(d.data.user[0]);
         })
@@ -40,8 +40,8 @@ const mynav = useNavigate();
 
 
 
-    const updateuseer = (e) => {
-       axios.patch(`${baseurl}/edituser/${id}`,formData).then((d)=>{
+    const updateuseer =async (e) => {
+       await axios.patch(`${baseurl}/edituser/${id}`,formData ,{withCredentials:true}).then((d)=>{
         console.log(d);
         toast.success(d.data.msg,{autoClose:2000});
         setTimeout(()=>{
