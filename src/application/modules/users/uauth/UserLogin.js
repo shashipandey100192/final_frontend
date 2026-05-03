@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import {baseurl} from '../../../service/Apiservice';
+import { baseurl } from '../../../service/Apiservice';
 
 
 const UserLogin = () => {
@@ -20,8 +20,8 @@ const UserLogin = () => {
   };
 
   const handleSubmit = async (e) => {
-    await axios.post(`${baseurl}/userlogin`, formData,{
-      withCredentials:true
+    await axios.post(`${baseurl}/userlogin`, formData, {
+      withCredentials: true
     }).then((d) => {
       console.log(d);
       if (d.data.status === 420) {
